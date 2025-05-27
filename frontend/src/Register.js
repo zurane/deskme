@@ -1,7 +1,7 @@
 function Register() {
   return (
     <div className="h-screen flex flex-row items-center justify-center p-10">
-      <div className="bg-white p-10 shadow-md w-full max-w-md rounded-md border-gray-100 border">
+      <div className="bg-white p-10 shadow-sm w-full max-w-md rounded-sm border-gray-50 border">
         <div>
           <h1 className="font-bold text-3xl sm:text-md">Create your account</h1>
           <p className="text-sm text-gray-600 mb-4 mt-3">
@@ -32,13 +32,14 @@ function Register() {
             className="w-full bg-zinc-50 rounded border border-gray-200 mb-5 py-4 px-2"
           >
             <option value="student">I'm a student</option>
-            <option value="teacher">I'm a Teacher</option>
+            <option value="teacher">I'm a teacher</option>
           </select>
           <label className="text-xs text-gray-600 flex items-center mb-3">
-            <input type="checkbox" className="mr-2" />By continuing, you agree to our Terms of Use and Privacy Policy.
+            <input type="checkbox" className="mr-2" />
+            By continuing, you agree to our Terms of Use and Privacy Policy.
           </label>
 
-          <div className="w-full bg-zinc-900 rounded text-white text-center mt-1 py-3 hover:bg-zinc-800 transition-colors">
+          <div className="w-full bg-zinc-900 rounded text-white text-center mt-3 py-4 hover:bg-zinc-800 transition-colors">
             <button type="submit">Continue</button>
           </div>
 
@@ -50,7 +51,6 @@ function Register() {
               </a>
             </p>
           </div>
-
         </form>
       </div>
     </div>
@@ -58,4 +58,4 @@ function Register() {
 }
 
 export default Register;
-// This is a simple registration form component for a React application.
+// This is a simple registration form component.
