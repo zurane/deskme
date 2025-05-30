@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&display=swap");
 
 body {
-   font-family: "PT Sans", sans-serif;
+  font-family: "PT Sans", sans-serif;
   background-color: #f0f0f0;
 }
 
@@ -13,24 +13,13 @@ body {
   height: 100vh;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.left-header {
+  background-image: url("./assets/Vectoria-2.jpg");
+  background-size: cover;
+  background-position: top bottom;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
 
 .btn-grad {
   background-image: linear-gradient(
@@ -41,17 +30,13 @@ body {
   );
 }
 .btn-grad {
-  margin: 10px;
-  padding: 15px 25px;
+  padding: 10px 15px;
   text-align: center;
-  text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
   box-shadow: 0 0 20px #eeeeee1a;
-  border-radius: 50px;
   border: none;
-  display: block;
 }
 .btn-grad:hover {
   background-position: right center;

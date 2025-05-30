@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios"; // Importing React and axios for making HTTP requests
 import brandLogo from "./assets/deskme-logo.png"; // Importing brand logo image
-
+import { useNavigate } from "react-router";
 
 function Register() {
   const [formData, setFormData] = React.useState({
@@ -14,6 +14,11 @@ function Register() {
 
   const [agreed, setAgreed] = React.useState(formData.agreedToTerms); // State to manage checkbox for terms agreement
   const [error, setError] = React.useState("");
+  const navigate = useNavigate(); // Hook to programmatically navigate
+  React.useEffect(() => {
+    // Reset error message when form data changes
+    setError("");
+  }, [formData]);
 
   //handleCheckboxChange function to update the agreed state
   const handleCheckboxChange = (event) => {
@@ -44,9 +49,8 @@ function Register() {
     axios
       .post("http://localhost:5000/auth/register", formData)
       .then((response) => {
-        // Handle successful registration
         console.log("Registration successful:", response.data);
-        // Redirect or show success message
+        navigate("/dashboard"); // Redirect to dashboard page after successful registration
       })
       .catch((error) => {
         // Handle errors during registration
@@ -59,75 +63,75 @@ function Register() {
   };
 
   return (
-    <div className="h-screen flex flex-row items-center justify-center p-10">
-      <div className="bg-white p-10 shadow-md w-full max-w-md rounded-sm border-gray-50 border">
+    <div
+      className="bg-white opacity-100 p-10 w-full max-w-md shadow-sm rounded-sm"
+    >
+      <div>
+        <img src={brandLogo} alt="Brand Logo" className="w-30 mb-4" />
+        <h1 className="font-bold text-3xl sm:text-md">Create your account</h1>
+        <p className="text-sm text-gray-600 mb-4 mt-3">
+          Fuel your learning journey with ready-to-go resources for every
+          subject and exam.
+        </p>
+      </div>
+      <form className="text-sm my-3" onSubmit={handleFormSubmit}>
+        {/* Form fields for user registration */}
+        <input
+          name="names"
+          onChange={handleFormChange}
+          placeholder="Full name"
+          className="w-full border rounded border-gray-200 mb-3 py-4 px-2"
+        />
+        <input
+          name="email"
+          onChange={handleFormChange}
+          type="email"
+          placeholder="Email"
+          className="w-full rounded border border-gray-200 mb-3  py-4 px-2"
+        />
+        <input
+          name="password"
+          onChange={handleFormChange}
+          type="password"
+          placeholder="Password"
+          className="w-full rounded border border-gray-200 mb-3  py-4 px-2"
+        />
+        <select
+          name="role"
+          onChange={handleFormChange}
+          className="w-full bg-zinc-50 rounded border border-gray-200 mb-5 py-4 px-2"
+        >
+          <option value="student">I'm a student</option>
+          <option value="teacher">I'm a teacher</option>
+        </select>
+
+        <label className="text-xs text-gray-600 flex items-center mb-3">
+          <input
+            type="checkbox"
+            checked={agreed}
+            onChange={handleCheckboxChange}
+            className="mr-2"
+          />
+          <span>
+            By continuing, you agree to our{" "}
+            <span className="underline"> Terms of Use </span> and{" "}
+            <span className="underline"> Privacy Policy </span>
+          </span>
+        </label>
+        {error && <span className="text-red-500 text-xs mt-2">{error}</span>}
+        <div className="w-full bg-zinc-900 rounded text-white text-center mt-3 py-4 hover:bg-zinc-800 transition-colors">
+          <button type="submit">Continue</button>
+        </div>
+
         <div>
-          <img src={brandLogo} alt="Brand Logo" className="w-30 mb-4" />
-          <h1 className="font-bold text-3xl sm:text-md">Create your account</h1>
-          <p className="text-sm text-gray-600 mb-4 mt-3">
-            Fuel your learning journey with ready-to-go resources for every
-            subject and exam.
+          <p className="text-sm text-center text-gray-600 px-2 mt-4">
+            Already have an account?
+            <a href="/login" className="text-blue-500 ml-1 underline">
+              Login
+            </a>
           </p>
         </div>
-        <form className="text-sm my-3" onSubmit={handleFormSubmit}>
-          {/* Form fields for user registration */}
-          <input
-            name="names"
-            onChange={handleFormChange}
-            placeholder="Full name"
-            className="w-full border rounded border-gray-200 mb-3 py-4 px-2"
-          />
-          <input
-            name="email"
-            onChange={handleFormChange}
-            type="email"
-            placeholder="Email"
-            className="w-full rounded border border-gray-200 mb-3  py-4 px-2"
-          />
-          <input
-            name="password"
-            onChange={handleFormChange}
-            type="password"
-            placeholder="Password"
-            className="w-full rounded border border-gray-200 mb-3  py-4 px-2"
-          />
-          <select
-            name="role"
-            onChange={handleFormChange}
-            className="w-full bg-zinc-50 rounded border border-gray-200 mb-5 py-4 px-2"
-          >
-            <option value="student">I'm a student</option>
-            <option value="teacher">I'm a teacher</option>
-          </select>
-
-          <label className="text-xs text-gray-600 flex items-center mb-3">
-            <input
-              type="checkbox"
-              checked={agreed}
-              onChange={handleCheckboxChange}
-              className="mr-2"
-            />
-            <span>
-              By continuing, you agree to our{" "}
-              <span className="underline"> Terms of Use </span> and{" "}
-              <span className="underline"> Privacy Policy </span>
-            </span>
-          </label>
-          {error && <span className="text-red-500 text-xs mt-2">{error}</span>}
-          <div className="w-full bg-zinc-900 rounded text-white text-center mt-3 py-4 hover:bg-zinc-800 transition-colors">
-            <button type="submit">Continue</button>
-          </div>
-
-          <div>
-            <p className="text-sm text-center text-gray-600 px-2 mt-4">
-              Already have an account?
-              <a href="/login" className="text-blue-500 ml-1 underline">
-                Login
-              </a>
-            </p>
-          </div>
-        </form>
-      </div>
+      </form>
     </div>
   );
 }
