@@ -1,29 +1,29 @@
-import brandLogo from "../assets/deskme-logo.png"; // Importing brand logo image
+import brandLogo from "../assets/deskme-logo.png";
+import userIcon from '../assets/profile-ava.svg'; // Assuming you have a user icon image
+import { PiBellLight } from "react-icons/pi";
+
 
 function Navigation() {
   return (
     <nav>
-      <div className="container-fluid flex flex-row justify-between items-center bg-slate-50 px-10 py-3">
-        <a className="navbar-brand pb-3" href="/">
-          <img
-            src={brandLogo}
-            alt="Logo"
-            width="100"
-            className="d-inline-block align-text-top"
-          />
-        </a>
+      <div className="container-fluid flex flex-row justify-between items-center bg-slate-50 px-8 py-3">
+        <div>
+          <a className="navbar-brand" href="/">
+            <img
+              src={brandLogo}
+              alt="Logo"
+              width="100"
+            />
+          </a>
+        </div>
         {/* Button to create account */}
-        <button
-          className="navbar-toggler text-xs btn-grad"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon font-bold">Create account</span>
-        </button>
+        <div className="flex flex-row items-center gap-5">
+          <div className="text-2xl"><PiBellLight /></div>
+          <div className="flex inline-flex items-center px-3 py-2">
+            <span>Mpho Lebona</span>
+            <img src={userIcon} alt="User Icon" className="w-7 h-7 rounded-full ml-2" />
+          </div>
+        </div>
       </div>
     </nav>
   );

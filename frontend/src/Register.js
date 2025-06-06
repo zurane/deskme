@@ -118,7 +118,7 @@ function Register() {
             <span className="underline"> Privacy Policy </span>
           </span>
         </label>
-        {error && <span className="text-red-500 text-xs mt-2">{error}</span>}
+        {error && <div className="bg-orange-100 border-l-4 border-orange-500  text-orange-700 text-xs my-3  p-4" role="alert">{error}</div>}
         <div className="w-full bg-zinc-900 rounded text-white text-center mt-3 py-4 hover:bg-zinc-800 transition-colors">
           <button type="submit">Continue</button>
         </div>
