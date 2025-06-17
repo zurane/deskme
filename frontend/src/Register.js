@@ -3,7 +3,7 @@ import axios from "axios"; // Importing React and axios for making HTTP requests
 import brandLogo from "./assets/deskme-logo.png"; // Importing brand logo image
 import { useNavigate } from "react-router";
 
-function Register() {
+function RegisterForm() {
   const [formData, setFormData] = React.useState({
     names: "",
     email: "",
@@ -136,5 +136,5 @@ function Register() {
   );
 }
 
-export default Register;
+export default RegisterForm;
 // This is a simple registration form component.
