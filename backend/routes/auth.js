@@ -43,7 +43,6 @@ router.post("/register", async (req, res) => {
       },
     });
 
-    // Respond with the created user and token
   } catch (error) {
     return res.status(500).json({ message: "Server error", error });
   }

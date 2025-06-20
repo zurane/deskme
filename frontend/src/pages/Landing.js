@@ -1,4 +1,4 @@
-import RegisterForm from "./Register";
+import RegisterForm from "../RegisterForm";
 function Landing() {
     return (
         <div className="flex flex-row justify-start items-start flex-nowrap gap-4">

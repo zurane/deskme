@@ -1,7 +1,10 @@
 import React from "react";
-import axios from "axios"; // Importing React and axios for making HTTP requests
-import brandLogo from "./assets/deskme-logo.png"; // Importing brand logo image
+import axios from "axios";
+import { SpinnerCircularFixed } from 'spinners-react';
+import brandLogo from "./assets/deskme-logo.png";
 import { useNavigate } from "react-router";
+
+
 
 function RegisterForm() {
   const [formData, setFormData] = React.useState({
@@ -14,11 +17,19 @@ function RegisterForm() {
 
   const [agreed, setAgreed] = React.useState(formData.agreedToTerms); // State to manage checkbox for terms agreement
   const [error, setError] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+
+
   const navigate = useNavigate(); // Hook to programmatically navigate
   React.useEffect(() => {
     // Reset error message when form data changes
     setError("");
   }, [formData]);
+
+  const OnlineStatus = navigator.onLine ? "online" : "offline";
+  console.log("Online Status:", OnlineStatus);
+
+
 
   //handleCheckboxChange function to update the agreed state
   const handleCheckboxChange = (event) => {
@@ -29,12 +40,15 @@ function RegisterForm() {
     }); // Update the agreed state based on checkbox input
   };
 
+
+
   const handleFormChange = (event) => {
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
     }); // Update form data state on input change
   };
+
 
   // Function to handle form submission
   const handleFormSubmit = (event) => {
@@ -45,21 +59,34 @@ function RegisterForm() {
       return; // If terms are not agreed, show error and stop submission
     }
 
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000); // Simulate a 5-second loading time
+
     // Make a POST request to the registration endpoint
-    axios
-      .post("http://localhost:5000/auth/register", formData)
-      .then((response) => {
-        console.log("Registration successful:", response.data);
-        navigate("/dashboard"); // Redirect to dashboard page after successful registration
-      })
-      .catch((error) => {
-        // Handle errors during registration
-        console.error(
-          "Registration error:",
-          error.response || error.message || error
-        );
-        setError("Registration failed. Please try again.");
-      });
+    if (!navigator.onLine) {
+      setError('You are currently offline. Please check your internet connection.')
+    } else {
+      axios
+        .post("http://localhost:5000/auth/register", formData)
+        .then((response) => {
+          console.log("Registration successful:", response.data);
+          setLoading(false);
+
+          navigate("/dashboard"); // Redirect to dashboard page after successful registration
+        })
+        .catch((error) => {
+          // Handle errors during registration
+          console.error(
+            "Registration error:",
+            error.response || error.message || error
+          );
+          setError("Registration failed. Please try again.");
+          setLoading(false);
+        });
+    }
   };
 
   return (
@@ -120,7 +147,7 @@ function RegisterForm() {
         </label>
         {error && <div className="bg-orange-100 border-l-4 border-orange-500  text-orange-700 text-xs my-3  p-4" role="alert">{error}</div>}
         <div className="w-full bg-zinc-900 rounded text-white text-center mt-3 py-4 hover:bg-zinc-800 transition-colors">
-          <button type="submit">Continue</button>
+          <button type="submit">{loading ? <SpinnerCircularFixed size={20} thickness={93} speed={100} color="rgba(255, 255, 255, 1)" secondaryColor="rgba(0, 0, 0, 0.44)" /> : "Continue"}</button>
         </div>
 
         <div>
