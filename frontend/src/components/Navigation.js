@@ -3,6 +3,12 @@ import { PiBellLight } from "react-icons/pi";
 
 
 function Navigation() {
+  //  const getToday = new Date();
+  //   const days = ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'];
+  //   const getDayOfWeek = getToday.getDay();
+  //   const getYear = getToday.getFullYear();
+  //   const getDay = getToday.getDate();
+  //   const date = getDay + ' ' + days[getDayOfWeek - 1] + ' ' + getYear
   return (
     <nav className="border-b border-gray-200 sticky top-0 z-50">
       <div className="container-fluid flex flex-row justify-between items-center bg-white px-6">
