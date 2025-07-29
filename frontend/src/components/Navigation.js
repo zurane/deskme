@@ -1,5 +1,4 @@
-import userIcon from '../assets/profile-ava.svg'; // Assuming you have a user icon image
-import { PiBellLight } from "react-icons/pi";
+import { Bell, CircleUserRound } from "lucide-react"
 
 
 function Navigation() {
@@ -10,17 +9,17 @@ function Navigation() {
   //   const getDay = getToday.getDate();
   //   const date = getDay + ' ' + days[getDayOfWeek - 1] + ' ' + getYear
   return (
-    <nav className="border-b border-gray-200 sticky top-0 z-50">
-      <div className="container-fluid flex flex-row justify-between items-center bg-white px-6">
-        <div>
-
+    <nav className="sticky top-0 z-50">
+      <div className="container-fluid flex flex-row justify-between items-center px-5 py-3">
+        <div className="leading-5">
+          <p className="font-bold text-lg">Dashboard</p>
+          <span className="text-sm text-gray-400">Welcome back, Mpho Lebona</span>
         </div>
         {/* Button to create account */}
-        <div className="flex flex-row items-center gap-5">
-          <div className="text-2xl"><PiBellLight /></div>
-          <div className="flex inline-flex items-center gap-3 px-3 py-2 hover:bg-gray-100 border-l border-gray-100 cursor-pointer">
-            <img src={userIcon} alt="User Icon" className="w-9 h-9 rounded-full" />
-            <p className="leading-4 text-sm">Mpho Lebona</p>
+        <div className="flex flex-row items-center gap-7">
+          <div className="text-2xl"><Bell /></div>
+          <div className="flex inline-flex items-center gap-3 px-2 py-2 bg-gray-100  cursor-pointer rounded-full">
+            <CircleUserRound />
           </div>
         </div>
       </div>

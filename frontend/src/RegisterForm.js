@@ -1,10 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { SpinnerCircularFixed } from 'spinners-react';
-import brandLogo from "./assets/deskme-logo.png";
 import { useNavigate } from "react-router";
-
-
 
 function RegisterForm() {
   const [formData, setFormData] = React.useState({
@@ -30,7 +27,6 @@ function RegisterForm() {
   console.log("Online Status:", OnlineStatus);
 
 
-
   //handleCheckboxChange function to update the agreed state
   const handleCheckboxChange = (event) => {
     setAgreed(event.target.checked);
@@ -39,7 +35,6 @@ function RegisterForm() {
       agreedToTerms: event.target.checked,
     }); // Update the agreed state based on checkbox input
   };
-
 
 
   const handleFormChange = (event) => {
@@ -75,7 +70,7 @@ function RegisterForm() {
           console.log("Registration successful:", response.data);
           setLoading(false);
 
-          navigate("/dashboard"); // Redirect to dashboard page after successful registration
+          navigate("/login"); // Redirect to login page after successful registration
         })
         .catch((error) => {
           // Handle errors during registration
@@ -83,7 +78,8 @@ function RegisterForm() {
             "Registration error:",
             error.response || error.message || error
           );
-          setError("Registration failed. Please try again.");
+          const errorMessage = error.response?.data?.message || "Registration failed. Please try again.";
+          setError(errorMessage);
           setLoading(false);
         });
     }
@@ -91,29 +87,33 @@ function RegisterForm() {
 
   return (
     <div
-      className="bg-white opacity-100 p-10 w-full max-w-md shadow-sm rounded-sm"
+      className="p-10 w-full max-w-md"
     >
+      {error && <div className="bg-orange-100 border-l-4 border-orange-500  text-orange-800 text-sm my-3 p-4" role="alert">{error}</div>}
       <div>
-        <img src={brandLogo} alt="Brand Logo" className="w-30 mb-4" />
-        <h1 className="font-bold text-3xl sm:text-md">Create your account</h1>
-        <p className="text-sm text-gray-600 mb-4 mt-3">
-          Fuel your learning journey with ready-to-go resources for every
-          subject and exam.
-        </p>
+        <h1 className="font-bold text-3xl sm:text-md">Create an account</h1>
+        <div>
+          <p className="text-sm text-left text-gray-600 pl-1 py-2">
+            Already have an account?
+            <a href="/login" className="text-blue-500 ml-1 underline">
+              Login
+            </a>
+          </p>
+        </div>
       </div>
       <form className="text-sm my-3" onSubmit={handleFormSubmit}>
         {/* Form fields for user registration */}
         <input
           name="names"
           onChange={handleFormChange}
-          placeholder="Full name"
+          placeholder="Full names"
           className="w-full border rounded border-gray-200 mb-3 py-4 px-2"
         />
         <input
           name="email"
           onChange={handleFormChange}
           type="email"
-          placeholder="Email"
+          placeholder="Student Email"
           className="w-full rounded border border-gray-200 mb-3  py-4 px-2"
         />
         <input
@@ -139,24 +139,15 @@ function RegisterForm() {
             onChange={handleCheckboxChange}
             className="mr-2"
           />
-          <span>
-            By continuing, you agree to our{" "}
-            <span className="underline"> Terms of Use </span> and{" "}
-            <span className="underline"> Privacy Policy </span>
+          <span className="text-xs text-gray-600 py-1">
+            I agree to the platform's{' '}
+            <span className="underline"> Terms of use </span>{' '} and {' '}
+            <span className="underline"> Privacy policy</span>
           </span>
         </label>
-        {error && <div className="bg-orange-100 border-l-4 border-orange-500  text-orange-700 text-xs my-3  p-4" role="alert">{error}</div>}
-        <div className="w-full bg-zinc-900 rounded text-white text-center mt-3 py-4 hover:bg-zinc-800 transition-colors">
-          <button type="submit">{loading ? <SpinnerCircularFixed size={20} thickness={93} speed={100} color="rgba(255, 255, 255, 1)" secondaryColor="rgba(0, 0, 0, 0.44)" /> : "Continue"}</button>
-        </div>
 
-        <div>
-          <p className="text-sm text-center text-gray-600 px-2 mt-4">
-            Already have an account?
-            <a href="/login" className="text-blue-500 ml-1 underline">
-              Login
-            </a>
-          </p>
+        <div className="w-full bg-indigo-600 rounded text-white text-center mt-3 py-4 hover:bg-indigo-700 transition-colors hover:cursor-pointer">
+          <button type="submit">{loading ? <SpinnerCircularFixed size={20} thickness={93} speed={100} color="rgba(255, 255, 255, 1)" secondaryColor="rgba(0, 0, 0, 0.44)" /> : "Continue"}</button>
         </div>
       </form>
     </div>
@@ -165,3 +156,4 @@ function RegisterForm() {
 
 export default RegisterForm;
 // This is a simple registration form component.
+

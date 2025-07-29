@@ -1,121 +1,129 @@
 import {
-  PiCirclesFour,
-  PiClipboard,
-  PiFolderOpen,
-  PiCalendarCheck,
-  PiMegaphoneSimple,
-  PiQuestion,
-  PiGearFine,
-  PiChalkboardSimple
-} from "react-icons/pi";
+  BookOpen,
+  Calendar,
+  FileText,
+  GraduationCap,
+  HelpCircle,
+  Home,
+  MessageSquare,
+  Settings,
+} from "lucide-react";
+
 import brandLogo from "../assets/openbook_platforms.svg";
 import { NavLink } from "react-router-dom";
 
 function SidebarNav() {
-  const activeNaLinkStyle = {
-    backgroundColor: "#F8F9FA",
-
+  const activeNavLinkStyle = {
+    backgroundColor: "#F1F5F9",
+    color: "#3B82F6",
+    borderRadius: "0.24rem",
   };
 
+  const linkActive = ({ isActive }) => (isActive ? activeNavLinkStyle : {})
+
+
+
   return (
-    <div className="h-screen w-60 bg-white border-r border-gray-100 p-1">
-      <div className="border-b border-gray-200 pb-3 mb-2">
+    <aside className="h-screen w-60 border-r border-gray-100 p-1 sidebar bg-white shadow-xs ">
+      <div className="pb-3 px-2 mb-2">
         {/* Brand Logo */}
-        <div className="border-b border-gray-200">
+        <div className="border-b border-gray-100 py-1">
           <a href="/">
             <img src={brandLogo} alt="Logo" width="200" />
           </a>
         </div>
+        {/* Links */}
+        <div className="mt-3 border-b border-gray-100 pb-3">
+          <div className="hover:bg-slate-100 rounded">
+            <NavLink
+              to={"/dashboard"}
+              end
+              style={linkActive}
+              className="inline-flex items-center text-gray-500 px-2 py-3 gap-3 w-full text-sm"
+            >
+              <Home className="w-5 h-5" />
+              <span>Dashboard</span>
+            </NavLink>
+          </div>
 
-        <div className="hover:bg-gray-100 my-2">
-          <NavLink
-            to={"/"}
-            style={({ isActive }) => (isActive ? activeNaLinkStyle : {})}
-            className="inline-flex items-center px-2 py-3 gap-3 w-full text-sm"
-          >
-            <PiCirclesFour className="text-2xl" />
-            <span>Dashboard</span>
-          </NavLink>
-        </div>
+          <div className="hover:bg-slate-100 my-2 rounded">
+            <NavLink
+              to={"/dashboard/assessments"}
+              style={linkActive}
+              className="inline-flex items-center text-gray-500  px-2 py-3 gap-3 w-full text-sm"
+            >
+              <FileText className="w-5 h-5" />
+              <span>Assessments</span>
+            </NavLink>
+          </div>
 
-        <div className="hover:bg-gray-100 my-2">
-          <NavLink
-            to={"/assessments"}
-            style={({ isActive }) => (isActive ? activeNaLinkStyle : {})}
-            className="inline-flex items-center px-2 py-3 gap-3 w-full text-sm"
-          >
-            <PiClipboard className="text-2xl" />
-            <span>Assessments</span>
-          </NavLink>
-        </div>
+          <div className="hover:bg-slate-100 rounded my-2">
+            <NavLink
+              to={"/dashboard/resources"}
+              style={linkActive}
+              className="inline-flex items-center text-gray-500 px-2 py-3 gap-3 w-full text-sm"
+            >
+              <BookOpen className="w-5 h-5" />
+              <span>Resources</span>
+            </NavLink>
+          </div>
 
-        <div className="hover:bg-gray-100 my-2">
-          <NavLink
-            to={"/resources"}
-            style={({ isActive }) => (isActive ? activeNaLinkStyle : {})}
-            className="inline-flex items-center px-2 py-3 gap-3 w-full text-sm"
-          >
-            <PiFolderOpen className="text-2xl" />
-            <span>Resources</span>
-          </NavLink>
-        </div>
-        <div className="hover:bg-gray-100 my-2">
-          <NavLink
-            to={"/tutorials"}
-            style={({ isActive }) => (isActive ? activeNaLinkStyle : {})}
-            className="inline-flex items-center px-2 py-3 gap-3 w-full text-sm"
-          >
-            <PiChalkboardSimple className="text-2xl" />
-            <span>Tutorials</span>
-          </NavLink>
-        </div>
-        <div className="hover:bg-gray-100 my-2">
-          <NavLink
-            to={"/timetable"}
-            style={({ isActive }) => (isActive ? activeNaLinkStyle : {})}
-            className="inline-flex items-center px-2 py-3 gap-3 w-full text-sm"
-          >
+          <div className="hover:bg-slate-100 rounded my-2">
+            <NavLink
+              to={"/dashboard/tutorials"}
+              style={linkActive}
+              className="inline-flex items-center text-gray-500 px-2 py-3 gap-3 w-full text-sm "
+            >
+              <GraduationCap className="w-5 h-5" />
+              <span>Tutorials</span>
+            </NavLink>
+          </div>
 
-            <PiCalendarCheck className="text-2xl" />
-            <span>Timetable</span>
-          </NavLink>
+          <div className="hover:bg-slate-100 my-2 rounded">
+            <NavLink
+              to={"/dashboard/timetable"}
+              style={linkActive}
+              className="inline-flex items-center text-gray-500 px-2 py-3 gap-3 w-full text-sm "
+            >
+              <Calendar className="w-5 h-5" />
+              <span>Timetable</span>
+            </NavLink>
+          </div>
         </div>
-
-        <div className="hover:bg-gray-100 my-2">
+        <div className="hover:bg-slate-100 rounded my-2">
           <NavLink
-            to={"/feedback"}
-            style={({ isActive }) => (isActive ? activeNaLinkStyle : {})}
-            className="inline-flex items-center px-2 py-3 gap-3 w-full text-sm"
+            to={"/dashboard/feedback"}
+            style={linkActive}
+            className="inline-flex items-center text-gray-500  px-2 py-3 gap-3 w-full text-sm "
           >
-            <PiMegaphoneSimple className="text-2xl" />
+            <MessageSquare className="w-5 h-5" />
             <span>Feedback</span>
           </NavLink>
         </div>
 
-        <div className="hover:bg-gray-100 my-2">
+        <div className="hover:bg-slate-100 my-2 rounded">
           <NavLink
-            to={"/support"}
-            style={({ isActive }) => (isActive ? activeNaLinkStyle : {})}
-            className="inline-flex items-center px-2 py-3 gap-3 w-full text-sm"
+            to={"/dashboard/support"}
+            style={linkActive}
+            className="inline-flex items-center text-gray-500 px-2 py-3 gap-3 w-full text-sm "
           >
-            <PiQuestion className="text-2xl" />
+            <HelpCircle className="w-5 h-5" />
             <span>Support</span>
           </NavLink>
         </div>
 
-        <div className="hover:bg-gray-100 my-2">
+        <div className="hover:bg-slate-100 my-2 rounded">
           <NavLink
-            to={"/settings"}
-            style={({ isActive }) => (isActive ? activeNaLinkStyle : {})}
-            className="inline-flex items-center px-2 py-3 gap-3 w-full text-sm"
+            to={"/dashboard/settings"}
+            style={linkActive}
+            className="inline-flex items-center text-gray-500 px-2 py-3 gap-3 w-full text-sm"
           >
-            <PiGearFine className="text-2xl" />
+            <Settings className="w-5 h-5" />
             <span>Settings</span>
           </NavLink>
         </div>
-
       </div>
-    </div>
+    </aside>
   );
 }
 export default SidebarNav;

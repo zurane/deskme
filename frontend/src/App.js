@@ -8,20 +8,38 @@ import Support from "./pages/Support";
 import Settings from "./pages/Settings";
 import Tutorials from "./pages/Tutorials";
 
+
 const Landing = lazy(() => import("./pages/Landing"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const DashboardLayout = lazy(() => import("./DashboardLayout"));
+const LoginPage = lazy(() => import("./LoginPage"));
 
 const Loading = () => <div>Loading...</div>;
 
 function App() {
+  
+  // Routing Structure Visualization:
+  // /
+  // ├── (index) Landing
+  // ├── /login LoginPage
+  // └── /dashboard/* DashboardLayout
+  //     ├── (index) Dashboard
+  //     ├── /assessments Assessments
+  //     ├── /resources Resources
+  //     ├── /timetable Timetable
+  //     ├── /feedback Feedback
+  //     ├── /tutorials Tutorials
+  //     ├── /support Support
+  //     └── /settings Settings
+
   return (
     <Router>
       <Suspense fallback={<Loading />}>
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route index element={<Landing />} />
+          <Route path="/login" element={<LoginPage />} />
           {/* Dashboard Layout Routes */}
-          <Route path="/*" element={<DashboardLayout />}>
+          <Route path="/dashboard/*" element={<DashboardLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="assessments" element={<Assessments />} />
             <Route path="resources" element={<Resources />} />
