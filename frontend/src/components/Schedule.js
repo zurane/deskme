@@ -1,4 +1,5 @@
 import { PiClock } from "react-icons/pi";
+import WeekPicker from "./WeekPicker";
 
 export default function Schedule() {
     
@@ -37,13 +38,22 @@ export default function Schedule() {
             avatar: 'MS',
 
         },
+         {
+            time: "12:00 - 13:00",
+            teacher: "Mr. Smith",
+            subject: "History",
+            room: "D21",
+            avatar: 'MS',
+
+        },
         // Add more schedule items as needed
     ];
     //Dummy data for the schedule
 
     return (
-        <div>
-            {data.map((item, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+           <div>
+             {data.map((item, index) => (
                 <div key={index} className='px-2 py-2 border border-stone-100 my-2 rounded-md flex flex-row items-center justify-between'>
                     <div className="flex items-center">
                         <div className="w-9 h-9 bg-blue-950 rounded-full flex items-center justify-center text-white text-sm font-medium mr-3">
@@ -63,6 +73,10 @@ export default function Schedule() {
                     </span>
                 </div>
             ))}
+           </div>
+           <div className="bg-sky-50">
+             <WeekPicker/>
+           </div>
         </div>
     );
 }
