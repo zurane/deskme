@@ -7,6 +7,7 @@ import Feedback from "./pages/Feedback";
 import Support from "./pages/Support";
 import Settings from "./pages/Settings";
 import Tutorials from "./pages/Tutorials";
+import Loader from "./components/Loader";
 
 
 const Landing = lazy(() => import("./pages/Landing"));
@@ -14,10 +15,10 @@ const Dashboard = lazy(() => import("./pages/Dashboard"));
 const DashboardLayout = lazy(() => import("./DashboardLayout"));
 const LoginPage = lazy(() => import("./LoginPage"));
 
-const Loading = () => <div>Loading...</div>;
+
 
 function App() {
-  
+
   // Routing Structure Visualization:
   // /
   // ├── (index) Landing
@@ -34,7 +35,7 @@ function App() {
 
   return (
     <Router>
-      <Suspense fallback={<Loading />}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route index element={<Landing />} />
           <Route path="/login" element={<LoginPage />} />

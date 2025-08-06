@@ -14,8 +14,7 @@ import { NavLink } from "react-router-dom";
 
 function SidebarNav() {
   const activeNavLinkStyle = {
-    backgroundColor: "#F1F5F9",
-    color: "#3B82F6",
+    backgroundColor: "#F4F5F5",
     borderRadius: "0.24rem",
   };
 

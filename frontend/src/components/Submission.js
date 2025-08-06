@@ -16,7 +16,7 @@ export default function Submission() {
 
         {
 
-            assignment: "Economic Analysis",
+            assignment: "Economic Analysis report",
             subject: "Economics",
             room: "Due in 3 days",
             color: 'w-3 h-3 bg-blue-500 rounded-full overflow-hidden mr-2',
@@ -25,7 +25,7 @@ export default function Submission() {
 
         {
 
-            assignment: "Assignment 1",
+            assignment: "Assignment 1: Exponents",
             subject: "Mathematics",
             room: "Due in 1 week",
             color: 'w-3 h-3 bg-yellow-500 rounded-full overflow-hidden mr-2',

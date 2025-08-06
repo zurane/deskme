@@ -9,6 +9,7 @@ import { ArrowUp, ArrowDown } from "lucide-react";
 import { LineChart } from "@mui/x-charts";
 import Schedule from "../components/Schedule";
 import Submission from "../components/Submission";
+import QuickActions from "../components/QuickActions";
 
 // The Dashboard component displays various widgets with statistics and a radar chart.
 // It includes widgets for average score, pass rate, completed assignments, and attendance.
@@ -117,8 +118,8 @@ function Dashboard() {
         {/* CHARTS */}
         <div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
-            
-<div className="bg-white rounded-md p-4 flex-1 border border-gray-100 hover:shadow-[0px_9px_8px_-3px_rgba(0,_0,_0,_0.1)]
+
+            <div className="bg-white rounded-md p-4 flex-1 border border-gray-100 hover:shadow-[0px_9px_8px_-3px_rgba(0,_0,_0,_0.1)]
  transition-shadow duration-200">
               <div className="pb-1 mb-2 leading-8">
                 <h4 className="text-md text-slate-600 font-medium inline-flex items-center justify-center gap-1">
@@ -142,7 +143,7 @@ function Dashboard() {
               />
             </div>
 
-<div className="bg-white rounded-md p-4 flex-1 border border-gray-100 hover:shadow-[0px_9px_8px_-3px_rgba(0,_0,_0,_0.1)]
+            <div className="bg-white rounded-md p-4 flex-1 border border-gray-100 hover:shadow-[0px_9px_8px_-3px_rgba(0,_0,_0,_0.1)]
                 transition-shadow duration-200 overflow-hidden">
               <div className="pb-1 mb-2 leading-8">
                 <h4 className="text-md text-slate-600 font-medium inline-flex items-center justify-center gap-1">
@@ -153,7 +154,7 @@ function Dashboard() {
               <Schedule />
             </div>
 
-<div className="bg-white rounded-md p-4 flex-1 border border-gray-100 hover:shadow-[0px_9px_8px_-3px_rgba(0,_0,_0,_0.1)]
+            <div className="bg-white rounded-md p-4 flex-1 border border-gray-100 hover:shadow-[0px_9px_8px_-3px_rgba(0,_0,_0,_0.1)]
  transition-shadow duration-200">
               <div className="pb-1 mb-2 leading-8">
                 <h4 className="text-md text-slate-600 font-medium inline-flex items-center justify-center gap-1">
@@ -164,6 +165,19 @@ function Dashboard() {
                 </p>
               </div>
               <Submission />
+            </div>
+
+            <div className="bg-white rounded-md p-4 flex-1 border border-gray-100 hover:shadow-[0px_9px_8px_-3px_rgba(0,_0,_0,_0.1)]
+ transition-shadow duration-200">
+              <div className="pb-1 mb-2 leading-8">
+                <h4 className="text-md text-slate-600 font-medium inline-flex items-center justify-center gap-1">
+                  Quick Actions
+                </h4>
+                <p className="text-gray-400 text-sm">
+                  Tasks requiring your attention
+                </p>
+              </div>
+              <QuickActions/>
             </div>
 
           </div>

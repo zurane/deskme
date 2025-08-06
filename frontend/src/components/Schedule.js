@@ -2,7 +2,7 @@ import { PiClock } from "react-icons/pi";
 import WeekPicker from "./WeekPicker";
 
 export default function Schedule() {
-    
+
     const data = [
         {
             time: "08:00 - 09:00",
@@ -38,7 +38,7 @@ export default function Schedule() {
             avatar: 'MS',
 
         },
-         {
+        {
             time: "12:00 - 13:00",
             teacher: "Mr. Smith",
             subject: "History",
@@ -52,31 +52,31 @@ export default function Schedule() {
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-           <div>
-             {data.map((item, index) => (
-                <div key={index} className='px-2 py-2 border border-stone-100 my-2 rounded-md flex flex-row items-center justify-between'>
-                    <div className="flex items-center">
-                        <div className="w-9 h-9 bg-blue-950 rounded-full flex items-center justify-center text-white text-sm font-medium mr-3">
-                            {item.avatar}
+            <div>
+                {data.map((item, index) => (
+                    <div key={index} className='px-2 py-2 border border-stone-100 my-2 rounded-md flex flex-row items-center justify-between'>
+                        <div className="flex items-center">
+                            <div className="w-9 h-9 bg-blue-950 rounded-full flex items-center justify-center text-white text-sm font-medium mr-3">
+                                {item.avatar}
                             </div>
-                        <p className="text-sm text-zinc-800 py-1 leading-5">
-                            {item.teacher}
-                            <br />
-                            <span className="text-xs text-gray-400">
-                                {item.subject} • Room {item.room}
-                            </span>
-                        </p>
+                            <p className="text-sm text-zinc-800 py-1 leading-5">
+                                {item.teacher}
+                                <br />
+                                <span className="text-xs text-gray-400">
+                                    {item.subject} • Room {item.room}
+                                </span>
+                            </p>
+                        </div>
+                        <span className="p-1 rounded-md text-xs text-gray-600 inline-flex gap-1 items-center">
+                            <PiClock />
+                            {item.time}
+                        </span>
                     </div>
-                    <span className="p-1 rounded-md text-xs text-gray-600 inline-flex gap-1 items-center">
-                        <PiClock />
-                        {item.time}
-                    </span>
-                </div>
-            ))}
-           </div>
-           <div className="bg-sky-50">
-             <WeekPicker/>
-           </div>
+                ))}
+            </div>
+            <div className="bg-sky-50 p-2">
+                <WeekPicker />
+            </div>
         </div>
     );
 }
