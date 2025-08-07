@@ -38,86 +38,86 @@ function SidebarNav() {
               to={"/dashboard"}
               end
               style={linkActive}
-              className="inline-flex items-center text-gray-500 px-2 py-3 gap-3 w-full text-sm"
+              className="inline-flex items-center text-gray-600 px-2 py-3 gap-3 w-full text-sm"
             >
-              <Home className="w-5 h-5" />
-              <span>Dashboard</span>
+              <Home className="w-5 h-5" strokeWidth={1.25} />
+              <span>Overview</span>
             </NavLink>
           </div>
 
-          <div className="hover:bg-slate-100 my-2 rounded">
+          <div className="hover:bg-gray-100 my-2 rounded">
             <NavLink
               to={"/dashboard/assessments"}
               style={linkActive}
-              className="inline-flex items-center text-gray-500  px-2 py-3 gap-3 w-full text-sm"
+              className="inline-flex items-center text-gray-600  px-2 py-3 gap-3 w-full text-sm"
             >
-              <FileText className="w-5 h-5" />
+              <FileText className="w-5 h-5" strokeWidth={1.25} />
               <span>Assessments</span>
             </NavLink>
           </div>
 
-          <div className="hover:bg-slate-100 rounded my-2">
+          <div className="hover:bg-gray-100 rounded my-2">
             <NavLink
               to={"/dashboard/resources"}
               style={linkActive}
-              className="inline-flex items-center text-gray-500 px-2 py-3 gap-3 w-full text-sm"
+              className="inline-flex items-center text-gray-600 px-2 py-3 gap-3 w-full text-sm"
             >
-              <BookOpen className="w-5 h-5" />
+              <BookOpen className="w-5 h-5" strokeWidth={1.25} />
               <span>Resources</span>
             </NavLink>
           </div>
 
-          <div className="hover:bg-slate-100 rounded my-2">
+          <div className="hover:bg-gray-100 rounded my-2">
             <NavLink
               to={"/dashboard/tutorials"}
               style={linkActive}
-              className="inline-flex items-center text-gray-500 px-2 py-3 gap-3 w-full text-sm "
+              className="inline-flex items-center text-gray-600 px-2 py-3 gap-3 w-full text-sm "
             >
-              <GraduationCap className="w-5 h-5" />
+              <GraduationCap className="w-5 h-5" strokeWidth={1.25} />
               <span>Tutorials</span>
             </NavLink>
           </div>
 
-          <div className="hover:bg-slate-100 my-2 rounded">
+          <div className="hover:bg-gray-100 my-2 rounded">
             <NavLink
               to={"/dashboard/timetable"}
               style={linkActive}
-              className="inline-flex items-center text-gray-500 px-2 py-3 gap-3 w-full text-sm "
+              className="inline-flex items-center text-gray-600 px-2 py-3 gap-3 w-full text-sm "
             >
-              <Calendar className="w-5 h-5" />
+              <Calendar className="w-5 h-5" strokeWidth={1.25} />
               <span>Timetable</span>
             </NavLink>
           </div>
         </div>
-        <div className="hover:bg-slate-100 rounded my-2">
+        <div className="hover:bg-gray-100 rounded my-2">
           <NavLink
             to={"/dashboard/feedback"}
             style={linkActive}
-            className="inline-flex items-center text-gray-500  px-2 py-3 gap-3 w-full text-sm "
+            className="inline-flex items-center text-gray-600  px-2 py-3 gap-3 w-full text-sm "
           >
-            <MessageSquare className="w-5 h-5" />
+            <MessageSquare className="w-5 h-5" strokeWidth={1.25} />
             <span>Feedback</span>
           </NavLink>
         </div>
 
-        <div className="hover:bg-slate-100 my-2 rounded">
+        <div className="hover:bg-gray-100 my-2 rounded">
           <NavLink
             to={"/dashboard/support"}
             style={linkActive}
-            className="inline-flex items-center text-gray-500 px-2 py-3 gap-3 w-full text-sm "
+            className="inline-flex items-center text-gray-600 px-2 py-3 gap-3 w-full text-sm "
           >
-            <HelpCircle className="w-5 h-5" />
+            <HelpCircle className="w-5 h-5" strokeWidth={1.25} />
             <span>Support</span>
           </NavLink>
         </div>
 
-        <div className="hover:bg-slate-100 my-2 rounded">
+        <div className="hover:bg-gray-100 my-2 rounded">
           <NavLink
             to={"/dashboard/settings"}
             style={linkActive}
-            className="inline-flex items-center text-gray-500 px-2 py-3 gap-3 w-full text-sm"
+            className="inline-flex items-center text-gray-600 px-2 py-3 gap-3 w-full text-sm"
           >
-            <Settings className="w-5 h-5" />
+            <Settings className="w-5 h-5" strokeWidth={1.25} />
             <span>Settings</span>
           </NavLink>
         </div>

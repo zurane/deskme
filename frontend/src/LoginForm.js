@@ -56,8 +56,7 @@ function LoginForm() {
           // Handle errors during registration
           console.error(error.response || error.message || error);
           const errorMessage =
-            error.response?.data?.message ||
-            "Registration failed. Please try again.";
+            error.response?.data?.message;
           setError(errorMessage);
           setLoading(false);
         });
